@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{ useState } from 'react';
+import Header from './BaiTap1/Header';
+import UserFrom from './BaiTap2/UserForm'
+import Greeting from './BaiTap2/Greeting'
 
 function App() {
+
+  const [name, setName] = useState('');
+
+  const handleNameChange = (event) => {
+    setName(event.target.value);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <p>Bai1</p>
+      <Header />
+      <p>This is my app content.</p>
+      <p> bai2 </p>
+      <div>
+      <UserFrom onNameChange={handleNameChange} />
+      <Greeting name={name} />
+    </div>
+      
     </div>
   );
 }
